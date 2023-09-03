@@ -2,3 +2,6 @@ pettingzoo
 pygame
 pymunk
 ray[rllib]
+torch
+#tensorflow
+#--upgrade tfp-nightly
