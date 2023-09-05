@@ -3,5 +3,6 @@ pygame
 pymunk
 ray[rllib]
 torch
+numpy==1.23.5
 #tensorflow
 #--upgrade tfp-nightly
