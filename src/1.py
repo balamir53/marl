@@ -1,13 +1,14 @@
 from ray.rllib.algorithms.ppo import PPOConfig
 from pettingzoo.mpe import simple_tag_v3
 from ray.tune.registry import register_env
+from ray.rllib.env.wrappers.pettingzoo_env import PettingZooEnv
 
 env = simple_tag_v3.env()
 
-def env_creator(hele):
-    return env
+# def env_creator(hele):
+#     return env
 
-register_env('simple_tag_v3', env_creator)
+register_env('simple_tag_v3', lambda _: PettingZooEnv(env))
 
 # check this
 # https://stackoverflow.com/questions/74637712/how-do-you-use-openai-gym-wrappers-with-a-custom-gym-environment-in-ray-tune
