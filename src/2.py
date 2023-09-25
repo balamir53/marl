@@ -3,6 +3,8 @@ from ray.tune.registry import register_env
 from ray.rllib.env.wrappers.pettingzoo_env import PettingZooEnv
 from pettingzoo.sisl import waterworld_v4
 
+# from pettingzoo.mpe import simple_tag_v2
+
 # Based on code from github.com/parametersharingmadrl/parametersharingmadrl
 
 if __name__ == "__main__":
@@ -10,6 +12,7 @@ if __name__ == "__main__":
     # ADQN - Apex DQN
 
     register_env("waterworld", lambda _: PettingZooEnv(waterworld_v4.env()))
+    # register_env('simple_tag_v2', lambda _: PettingZooEnv(simple_tag_v2.env()))
 
     tune.Tuner(
         "APEX_DDPG",
@@ -21,7 +24,7 @@ if __name__ == "__main__":
         ),
         param_space={
             # Enviroment specific.
-            "env": "waterworld",
+            "env": "simple_tag_v2",
             # General
             "num_gpus": 0,
             "num_workers": 1,
